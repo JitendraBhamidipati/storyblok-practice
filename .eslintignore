@@ -1,0 +1,9 @@
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.ico
+*.html
+*.css
+/node_modules/**
+/build/**
