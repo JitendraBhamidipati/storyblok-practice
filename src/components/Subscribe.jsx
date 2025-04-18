@@ -1,0 +1,61 @@
+import { Grid, Typography } from '@mui/material';
+import { FormProvider, useForm } from 'react-hook-form';
+import { HouseIcon } from '@/common/svgs';
+import { CheckField, TextField } from '@/common/ReactHookForm';
+import { Button } from '@/common';
+
+const styles = {
+  container: color => ({
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    p: '2rem',
+    bgcolor: color
+  }),
+  fields: { bgcolor: 'white', '& filedset': { borderColor: 'common.black' } },
+  icon: { mr: '1rem' },
+  header: { fontWeight: 'bold' },
+  btn: { width: '100%' }
+};
+
+function Subscribe({ blok }) {
+  const { handleSubmit, watch, reset, getValues, ...methods } = useForm({
+    mode: 'onTouched',
+    defaultValues: { username: '', email: '', terms: false }
+  });
+
+  const submitForm = values => {
+    console.log('values: ' + values);
+  };
+
+  return (
+    <FormProvider {...methods}>
+      <Grid container sx={styles.container(blok.color.color)}>
+        <Grid size={5}>
+          <HouseIcon />
+          <Typography component="h2" variant="h3">
+            {blok.title}
+          </Typography>
+          <Typography>{blok.caption}</Typography>
+        </Grid>
+        <Grid size={5} container spacing={2}>
+          <Grid size={12}>
+            <TextField sx={styles.fields} label={blok.field1} name="username" />
+          </Grid>
+          <Grid size={12}>
+            <TextField sx={styles.fields} label={blok.field2} name="email" />
+          </Grid>
+          <Grid size={12}>
+            <CheckField label={blok.termsAndConditions} name="terms" />
+          </Grid>
+          <Grid size={12}>
+            <Button sx={styles.btn} onclick={handleSubmit(submitForm)}>
+              {blok.subscibeBtnText}
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+    </FormProvider>
+  );
+}
+
+export default Subscribe;

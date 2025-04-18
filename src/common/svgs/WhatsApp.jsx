@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const WhatsApp = props => {
+function WhatsApp(props) {
   const { sx, width, height, ...rest } = props;
 
   return (
@@ -34,7 +34,7 @@ const WhatsApp = props => {
       />
     </SvgIcon>
   );
-};
+}
 
 WhatsApp.propTypes = {
   sx: PropTypes.oneOfType([

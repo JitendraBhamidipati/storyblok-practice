@@ -1,17 +1,10 @@
 import Head from 'next/head';
-import {
-  useStoryblokState,
-  getStoryblokApi,
-  StoryblokComponent
-} from '@storyblok/react';
+import { getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from './theme';
-
-const resolveRelations = ['global_reference.reference'];
+import { resolveRelations } from './constants';
 
 export default function Page({ story }) {
-  story = useStoryblokState(story);
-
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -25,15 +18,15 @@ export default function Page({ story }) {
 }
 
 export async function getStaticProps({ params }) {
-  let slug = params.slug ? params.slug.join('/') : 'home';
+  const slug = params.slug ? params.slug.join('/') : 'home';
 
-  let sbParams = {
+  const sbParams = {
     version: 'draft', // or 'published'
     resolve_relations: resolveRelations
   };
 
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
   return {
     props: {
       story: data ? data.story : false,
@@ -45,25 +38,25 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get('cdn/links/', {
+  const { data } = await storyblokApi.get('cdn/links/', {
     version: 'draft',
     resolve_relations: resolveRelations
   });
 
-  let paths = [];
+  const paths = [];
   Object.keys(data.links).forEach(linkKey => {
     if (data.links[linkKey].is_folder || data.links[linkKey].slug === 'home') {
       return;
     }
 
-    const slug = data.links[linkKey].slug;
-    let splittedSlug = slug.split('/');
+    const { slug } = data.links[linkKey];
+    const splittedSlug = slug.split('/');
 
     paths.push({ params: { slug: splittedSlug } });
   });
 
   return {
-    paths: paths,
+    paths,
     fallback: false
   };
 }

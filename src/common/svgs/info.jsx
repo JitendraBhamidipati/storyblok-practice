@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const Date = props => {
+function Info(props) {
   const { sx, ...rest } = props;
 
   return (
@@ -13,12 +13,12 @@ const Date = props => {
       fontSize="small"
       {...rest}
     >
-      <path d="M18.984 20.016v-11.016h-13.969v11.016h13.969zM18.984 3.984q0.797 0 1.406 0.609t0.609 1.406v14.016q0 0.797-0.609 1.383t-1.406 0.586h-13.969q-0.844 0-1.43-0.563t-0.586-1.406v-14.016q0-0.797 0.586-1.406t1.43-0.609h0.984v-1.969h2.016v1.969h7.969v-1.969h2.016v1.969h0.984zM17.016 11.016v1.969h-2.016v-1.969h2.016zM12.984 11.016v1.969h-1.969v-1.969h1.969zM9 11.016v1.969h-2.016v-1.969h2.016z"></path>
+      <path d="M11.016 9v-2.016h1.969v2.016h-1.969zM12 20.016q3.281 0 5.648-2.367t2.367-5.648-2.367-5.648-5.648-2.367-5.648 2.367-2.367 5.648 2.367 5.648 5.648 2.367zM12 2.016q4.125 0 7.055 2.93t2.93 7.055-2.93 7.055-7.055 2.93-7.055-2.93-2.93-7.055 2.93-7.055 7.055-2.93zM11.016 17.016v-6h1.969v6h-1.969z"></path>
     </SvgIcon>
   );
-};
+}
 
-Date.propTypes = {
+Info.propTypes = {
   sx: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
@@ -28,6 +28,6 @@ Date.propTypes = {
   ])
 };
 
-Date.defaultProps = { sx: {} };
+Info.defaultProps = { sx: {} };
 
-export default Date;
+export default Info;

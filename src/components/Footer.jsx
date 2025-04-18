@@ -1,53 +1,38 @@
 import React from 'react';
-import { StoryblokComponent } from '@storyblok/react';
-import { Grid, Typography } from '@mui/material';
-import { InfoIcon, WebIcon } from '@/svgs';
+import { Grid } from '@mui/material';
+import { StoryblokComponent } from '@storyblok/react/rsc';
 
 const styles = {
   header: {
-    color: 'common.white',
+    color: 'common.black',
     fontSize: '1rem',
     mb: '1rem',
     fontWeight: 'bold'
   },
+  link: {
+    '& a': {
+      color: 'common.black'
+    }
+  },
   container: {
-    bgcolor: '#020a0a',
+    bgcolor: 'colors.footerBackground',
     py: '2rem',
     px: '4rem'
   },
   address: {
-    color: 'common.white',
+    color: 'common.black',
     mb: '1rem'
   }
 };
 
-const Footer = ({ blok }) => {
+function Footer({ blok }) {
   return (
-    <Grid container sx={styles.container}>
-      <Grid item xs={12} md={4}></Grid>
-      <Grid item xs={12} md={4}>
-        <Grid container alignItems={'center'} sx={styles.header}>
-          <Typography component={'div'} variant="button">
-            {blok.linkHeader}
-          </Typography>
-          <InfoIcon />
-        </Grid>
-        {blok.links.map((link, index) => (
-          <StoryblokComponent key={link._uid} blok={link} />
-        ))}
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Grid container alignItems={'center'} sx={styles.header}>
-          <Typography component={'div'} variant="button">
-            {blok.contactHeader}
-          </Typography>
-          <WebIcon />
-        </Grid>
-        <Typography sx={styles.address}>{blok.address}</Typography>
-        <Typography sx={styles.address}>{blok.contactNumber}</Typography>
-      </Grid>
-    </Grid>
+    <React.Fragment>
+      {blok.blocks.map(nestedBlok => (
+        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+      ))}
+    </React.Fragment>
   );
-};
+}
 
 export default Footer;

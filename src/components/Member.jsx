@@ -1,27 +1,28 @@
 import { Grid, Typography } from '@mui/material';
-import { PhoneIcon, MailIcon } from '../svgs';
+import { PhoneIcon, MailIcon } from '../common/svgs';
 
 const styles = {
+  container: { mt: '2rem' },
   image: { borderRadius: '50%' },
   iconWrap: { display: 'flex', alignItems: 'center', mt: '.5rem' },
   icon: { mr: '1rem' }
 };
 
-const Member = ({ blok }) => {
+function Member({ blok }) {
   return (
-    <Grid container textAlign={'center'} spacing={2}>
-      <Grid item xs={4}>
+    <Grid container sx={styles.container} textAlign="center" spacing={2}>
+      <Grid size={4}>
         <Grid
-          component={'img'}
+          component="img"
           sx={styles.image}
-          src={blok.image}
+          src={blok.picture.filename}
           height={110}
           width={110}
-        ></Grid>
+        />
       </Grid>
-      <Grid item xs={8} textAlign={'left'}>
+      <Grid size={8} textAlign="left">
         <Typography variant="button">{blok.name}</Typography>
-        <Typography variant="body2">{blok.Designation}</Typography>
+        <Typography variant="body2">{blok.role}</Typography>
         {blok.mobile && (
           <Typography sx={styles.iconWrap} variant="body2">
             <PhoneIcon sx={styles.icon} />
@@ -37,6 +38,6 @@ const Member = ({ blok }) => {
       </Grid>
     </Grid>
   );
-};
+}
 
 export default Member;

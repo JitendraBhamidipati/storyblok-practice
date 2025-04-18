@@ -19,6 +19,7 @@ module.exports = {
   },
   root: true,
   rules: {
+    'no-underscore-dangle': ['error', { allow: ['_uid'] }],
     indent: ['error', 2],
     'react/prefer-stateless-function': 'warn',
     'react/self-closing-comp': [

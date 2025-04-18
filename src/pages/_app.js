@@ -2,27 +2,27 @@
 
 import { storyblokInit, apiPlugin } from '@storyblok/react';
 import Page from '../components/Page';
-import FooterImages from '../components/FooterImages';
-import Image from '../components/Image';
 import Team from '../components/Team';
 import Member from '../components/Member';
 import Footer from '../components/Footer';
-import Link from '../components/Link';
-import GlobalReference from '@/components/GlobalReference';
 import Content from '@/components/Content';
 import SpeedDial from '@/components/SpeedDial';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import InstaFeed from '@/components/InstaFeed';
+import Subscribe from '@/components/Subscribe';
 
 const components = {
   page: Page,
-  footerImages: FooterImages,
-  image: Image,
   team: Team,
   member: Member,
   footer: Footer,
-  link: Link,
-  global_reference: GlobalReference,
+  header: Header,
   content: Content,
-  ['speed-dial']: SpeedDial
+  'speed-dial': SpeedDial,
+  hero: Hero,
+  instaFeed: InstaFeed,
+  subscribe: Subscribe
 };
 
 storyblokInit({
