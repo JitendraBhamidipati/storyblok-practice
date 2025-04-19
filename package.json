@@ -20,7 +20,7 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.55.0"
+    "react-hook-form": "^7.56.0-next.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",

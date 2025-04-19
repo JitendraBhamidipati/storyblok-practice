@@ -7,7 +7,9 @@ const styles = {
     pt: '6rem',
     height: '100vh',
     backgroundSize: 'cover',
-    alignItems: 'flex-end'
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    flexDirection: 'column'
   },
   discountValue: {
     fontSize: '2.5rem'
@@ -50,7 +52,8 @@ const styles = {
     top: 150,
     right: 80
   }),
-  icon: { color: 'transparent', m: 0 }
+  icon: { color: 'transparent', m: 0 },
+  bottomSpace: { mb: '8rem' }
 };
 
 function Hero({ blok }) {
@@ -77,33 +80,41 @@ function Hero({ blok }) {
         <Typography variant="h1" sx={styles.title}>
           {blok.title}
         </Typography>
-        <Button variant="contained" sx={styles.btn}>
+        <Button
+          variant="contained"
+          sx={[
+            styles.btn,
+            (!blok.banner || !blok.caption) && styles.bottomSpace
+          ]}
+        >
           <Link href={blok.booking.full_slug}>{blok.booking.name}</Link>
         </Button>
-        {blok.discount && (
-          <Grid sx={styles.discount(blok.themeColor.color)}>
-            <Grid sx={styles.discountValue}>{blok.discount}%</Grid>
-            <Grid>{blok.discountLabel}</Grid>
-          </Grid>
-        )}
       </Grid>
-      <Grid size={12} offset={1} textAlign="left">
-        {blok.caption && (
+      {blok.discount && (
+        <Grid sx={styles.discount(blok.themeColor.color)}>
+          <Grid sx={styles.discountValue}>{blok.discount}%</Grid>
+          <Grid>{blok.discountLabel}</Grid>
+        </Grid>
+      )}
+      {blok.caption && (
+        <Grid size={12} offset={1} textAlign="left">
           <Typography variant="h4" sx={styles.caption}>
             {blok.caption}
           </Typography>
-        )}
-      </Grid>
-      <Grid
-        size={12}
-        sx={{
-          bgcolor: blok.themeColor.color,
-          maxHeight: 60,
-          textAlign: 'center'
-        }}
-      >
-        <Typography variant="body1">{blok.banner}</Typography>
-      </Grid>
+        </Grid>
+      )}
+      {blok.banner && (
+        <Grid
+          size={12}
+          sx={{
+            bgcolor: blok.themeColor.color,
+            maxHeight: 60,
+            textAlign: 'center'
+          }}
+        >
+          <Typography variant="body1">{blok.banner}</Typography>
+        </Grid>
+      )}
     </Grid>
   );
 }

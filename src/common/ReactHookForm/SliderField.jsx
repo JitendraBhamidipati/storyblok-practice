@@ -46,14 +46,14 @@ SliderField.propTypes = {
   max: PropTypes.number,
   min: PropTypes.number,
   name: PropTypes.string.isRequired,
-  required: PropTypes.oneOfType(PropTypes.bool, PropTypes.number),
+  required: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   rules: PropTypes.object,
   step: PropTypes.number,
-  sx: PropTypes.oneOfType(
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  )
+  ])
 };
 
 export default SliderField;

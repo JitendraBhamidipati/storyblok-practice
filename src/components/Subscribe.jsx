@@ -48,7 +48,7 @@ function Subscribe({ blok }) {
             <CheckField label={blok.termsAndConditions} name="terms" />
           </Grid>
           <Grid size={12}>
-            <Button sx={styles.btn} onclick={handleSubmit(submitForm)}>
+            <Button sx={styles.btn} onClick={handleSubmit(submitForm)}>
               {blok.subscibeBtnText}
             </Button>
           </Grid>

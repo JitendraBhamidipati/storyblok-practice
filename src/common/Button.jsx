@@ -72,11 +72,11 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  sx: PropTypes.oneOfType(
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  ),
+  ]),
   variant: PropTypes.string
 };
 

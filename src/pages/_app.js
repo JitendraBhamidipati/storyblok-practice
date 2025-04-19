@@ -11,6 +11,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import InstaFeed from '@/components/InstaFeed';
 import Subscribe from '@/components/Subscribe';
+import Certificates from '@/components/Certificates';
 
 const components = {
   page: Page,
@@ -22,7 +23,8 @@ const components = {
   'speed-dial': SpeedDial,
   hero: Hero,
   instaFeed: InstaFeed,
-  subscribe: Subscribe
+  subscribe: Subscribe,
+  certificates: Certificates
 };
 
 storyblokInit({

@@ -57,13 +57,13 @@ DateField.propTypes = {
   helperText: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  required: PropTypes.oneOfType(PropTypes.bool, PropTypes.number),
+  required: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   rules: PropTypes.object,
-  sx: PropTypes.oneOfType(
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  )
+  ])
 };
 
 export default DateField;

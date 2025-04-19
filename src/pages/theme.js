@@ -8,6 +8,10 @@ const theme = createTheme({
       footerBackground: '#F3F1E9'
     }
   },
+  cssVariables: true,
+  typography: {
+    fontFamily: 'var(--font-Simplon)'
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `

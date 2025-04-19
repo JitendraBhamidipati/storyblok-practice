@@ -82,13 +82,13 @@ SwitchField.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  required: PropTypes.oneOfType(PropTypes.bool, PropTypes.number),
+  required: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   rules: PropTypes.object,
-  sx: PropTypes.oneOfType(
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  )
+  ])
 };
 
 export default SwitchField;

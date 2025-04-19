@@ -31,13 +31,13 @@ const ExpandMore = props => {
 
 ExpandMore.propTypes = {
   direction: PropTypes.string,
-  height: PropTypes.oneOfType(PropTypes.number, PropTypes.string),
-  sx: PropTypes.oneOfType(
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  ),
-  width: PropTypes.oneOfType(PropTypes.number, PropTypes.string)
+  ]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default ExpandMore;

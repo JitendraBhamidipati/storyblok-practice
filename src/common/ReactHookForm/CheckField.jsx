@@ -45,7 +45,6 @@ const CheckField = props => {
           <FormControlLabel
             control={
               <Checkbox
-                sx={{ bgcolor: 'common.white' }}
                 {...field}
                 checked={Boolean(field.value)}
                 color="primary"
@@ -57,7 +56,11 @@ const CheckField = props => {
                 {...rest}
               />
             }
-            label={label ? <FormLabel>{label}</FormLabel> : null}
+            label={
+              label ? (
+                <FormLabel sx={{ color: 'common.black' }}>{label}</FormLabel>
+              ) : null
+            }
             labelPlacement="end"
           />
           {errors[name] || helperText ? (
@@ -82,13 +85,13 @@ CheckField.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  required: PropTypes.oneOfType(PropTypes.bool, PropTypes.number),
+  required: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   rules: PropTypes.object,
-  sx: PropTypes.oneOfType(
+  sx: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object,
     PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  )
+  ])
 };
 
 export default CheckField;
