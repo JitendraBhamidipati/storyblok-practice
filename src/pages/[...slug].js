@@ -1,19 +1,28 @@
+import React from 'react';
 import Head from 'next/head';
 import { getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from './theme';
-import { resolveRelations } from './constants';
+import { myFont, resolveRelations } from './constants';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 export default function Page({ story }) {
   return (
-    <ThemeProvider theme={theme}>
+    <React.Fragment>
       <Head>
         <title>Coastline Kollektive</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CssBaseline />
-      <StoryblokComponent blok={story.content} />
-    </ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <ThemeProvider theme={theme}>
+          <div className={myFont.className}>
+            <CssBaseline />
+            <StoryblokComponent blok={story.content} />
+          </div>
+        </ThemeProvider>
+      </LocalizationProvider>
+    </React.Fragment>
   );
 }
 

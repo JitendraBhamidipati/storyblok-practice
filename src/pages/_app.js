@@ -12,6 +12,7 @@ import Hero from '@/components/Hero';
 import InstaFeed from '@/components/InstaFeed';
 import Subscribe from '@/components/Subscribe';
 import Certificates from '@/components/Certificates';
+import GoodToKnow from '@/components/GoodToKnow';
 
 const components = {
   page: Page,
@@ -24,7 +25,8 @@ const components = {
   hero: Hero,
   instaFeed: InstaFeed,
   subscribe: Subscribe,
-  certificates: Certificates
+  certificates: Certificates,
+  goodToKnow: GoodToKnow
 };
 
 storyblokInit({

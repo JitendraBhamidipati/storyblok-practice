@@ -19,16 +19,16 @@ function Date(props) {
         <path
           d="M28.6849 11.6225C28.6849 15.9201 20.9079 28.4801 20.9079 28.4801C20.9079 28.4801 13.1309 15.9201 13.1309 11.6225C13.1309 9.55847 13.9502 7.57898 15.4087 6.1195C16.8672 4.66002 18.8453 3.84009 20.9079 3.84009C22.9704 3.84009 24.9486 4.66002 26.407 6.1195C27.8655 7.57898 28.6849 9.55847 28.6849 11.6225V11.6225Z"
           stroke="white"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="bevel"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="bevel"
         />
         <path
           d="M20.9074 13.4592C22.4139 13.4592 23.6351 12.2371 23.6351 10.7296C23.6351 9.22208 22.4139 8 20.9074 8C19.4009 8 18.1797 9.22208 18.1797 10.7296C18.1797 12.2371 19.4009 13.4592 20.9074 13.4592Z"
           stroke="white"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="bevel"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="bevel"
         />
       </g>
       <defs>
@@ -39,9 +39,9 @@ function Date(props) {
           width="39.9785"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

@@ -3,32 +3,9 @@ import Head from 'next/head';
 import { getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme';
-import { resolveRelations } from './constants';
+import { myFont, resolveRelations } from './constants';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import localFont from 'next/font/local';
-
-// Font files can be colocated inside of `app`
-const myFont = localFont({
-  src: [
-    {
-      path: '../common/Assets/SimplonNorm-Regular.ttf',
-      variable: '--font-Simplon'
-    },
-    {
-      path: '../common/Assets/SimplonNorm-Bold.ttf',
-      variable: '--font-SimplonBold'
-    },
-    {
-      path: '../common/Assets/SimplonNorm-Medium.ttf',
-      variable: '--font-SimplonMedium'
-    },
-    {
-      path: '../common/Assets/SimplonNorm-Light.ttf',
-      variable: '--font-SimplonLight'
-    }
-  ]
-});
 
 export default function Home({ story }) {
   return (
