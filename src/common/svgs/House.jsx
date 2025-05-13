@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-function Instagram(props) {
-  const { sx, ...rest } = props;
+function House(props) {
+  const { sx = {}, width = 219, height = 124, ...rest } = props;
 
   return (
     <SvgIcon
-      sx={[
-        styles.icon,
-        { width: 219, height: 124 },
-        ...(Array.isArray(sx) ? sx : [sx])
-      ]}
+      sx={[styles.icon, { width, height }, ...(Array.isArray(sx) ? sx : [sx])]}
       viewBox="0 0 219 124"
       fontSize="small"
       fill="none"
@@ -128,7 +124,7 @@ function Instagram(props) {
   );
 }
 
-Instagram.propTypes = {
+House.propTypes = {
   sx: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
@@ -138,6 +134,4 @@ Instagram.propTypes = {
   ])
 };
 
-Instagram.defaultProps = { sx: {} };
-
-export default Instagram;
+export default House;

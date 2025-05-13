@@ -4,7 +4,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
 function WhatsApp(props) {
-  const { sx, width, height, ...rest } = props;
+  const { sx = {}, width = 18, height = 18, ...rest } = props;
 
   return (
     <SvgIcon
@@ -45,7 +45,5 @@ WhatsApp.propTypes = {
     PropTypes.object
   ])
 };
-
-WhatsApp.defaultProps = { sx: {} };
 
 export default WhatsApp;

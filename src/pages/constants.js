@@ -5,28 +5,36 @@ export const myFont = localFont({
   src: [
     {
       path: '../common/Assets/SimplonNorm-Regular.ttf',
-      variable: '--font-Simplon'
+      weight: '400',
+      style: 'normal'
     },
     {
       path: '../common/Assets/SimplonNorm-Bold.ttf',
-      variable: '--font-SimplonBold'
+      weight: '700',
+      style: 'normal'
     },
     {
       path: '../common/Assets/SimplonNorm-Medium.ttf',
-      variable: '--font-SimplonMedium'
+      weight: '500',
+      style: 'normal'
     },
     {
       path: '../common/Assets/SimplonNorm-Light.ttf',
-      variable: '--font-SimplonLight'
+      weight: '300',
+      style: 'normal'
     }
-  ]
+  ],
+  variable: '--font-Simplon',
+  display: 'swap'
 });
 
 export const resolveRelations = [
   'page.header',
   'page.speed_dial',
   'page.footer',
-  'footer.links',
+  'mainFooter.infoLinks',
+  'mainFooter.surfInstructorLinks',
+  'mainFooter.locationLinks',
   'hero.booking',
   'header.menus',
   'header.mainMenu',

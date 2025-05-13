@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material';
+import { myFont } from './constants';
 
 const theme = createTheme({
   palette: {
@@ -10,11 +11,14 @@ const theme = createTheme({
   },
   cssVariables: true,
   typography: {
-    fontFamily: 'var(--font-Simplon)'
+    fontFamily: myFont.style.fontFamily
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
+        p {
+          margin: 0;
+        }
         a {
           font-weight: bold;
           color: white;

@@ -10,3 +10,6 @@ export { default as InstagramIcon } from './Instagram';
 export { default as HouseIcon } from './House';
 export { default as VisibilityOffIcon } from './VisibilityOff';
 export { default as VisibilityOnIcon } from './VisibilityOn';
+export { default as ContactIcon } from './Contact';
+export { default as PaymentIcon } from './Payment';
+export { default as SurfInstructorIcon } from './SurfInstructor';

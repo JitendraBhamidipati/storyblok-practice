@@ -68,7 +68,7 @@ export default function ElevateAppBar(props) {
     <ElevationScroll {...props}>
       <AppBar>
         <Toolbar sx={{ my: '.5rem' }}>
-          <Grid container flex={1} alignItems="center">
+          <Grid container flex={1} alignItems="center" textAlign="center">
             <Grid size={2}>
               <Grid
                 component="img"

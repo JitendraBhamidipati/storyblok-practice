@@ -4,7 +4,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
 function Web(props) {
-  const { sx, ...rest } = props;
+  const { sx = {}, ...rest } = props;
 
   return (
     <SvgIcon
@@ -27,7 +27,5 @@ Web.propTypes = {
     PropTypes.object
   ])
 };
-
-Web.defaultProps = { sx: {} };
 
 export default Web;

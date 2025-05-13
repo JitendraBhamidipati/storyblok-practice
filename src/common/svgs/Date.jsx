@@ -4,11 +4,11 @@ import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
 function Date(props) {
-  const { sx, ...rest } = props;
+  const { sx = {}, width = 18, height = 18, ...rest } = props;
 
   return (
     <SvgIcon
-      sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}
+      sx={[styles.icon, { width, height }, ...(Array.isArray(sx) ? sx : [sx])]}
       viewBox="0 0 24 24"
       fontSize="small"
       {...rest}
@@ -27,7 +27,5 @@ Date.propTypes = {
     PropTypes.object
   ])
 };
-
-Date.defaultProps = { sx: {} };
 
 export default Date;

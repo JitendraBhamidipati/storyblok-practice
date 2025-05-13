@@ -13,6 +13,7 @@ import InstaFeed from '@/components/InstaFeed';
 import Subscribe from '@/components/Subscribe';
 import Certificates from '@/components/Certificates';
 import GoodToKnow from '@/components/GoodToKnow';
+import MainFooter from '@/components/MainFooter';
 
 const components = {
   page: Page,
@@ -26,7 +27,8 @@ const components = {
   instaFeed: InstaFeed,
   subscribe: Subscribe,
   certificates: Certificates,
-  goodToKnow: GoodToKnow
+  goodToKnow: GoodToKnow,
+  mainFooter: MainFooter
 };
 
 storyblokInit({

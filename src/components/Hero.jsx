@@ -3,14 +3,7 @@ import Link from 'next/link';
 import { LocationIcon } from '@/common/svgs';
 
 const styles = {
-  container: {
-    pt: '6rem',
-    height: '100vh',
-    backgroundSize: 'cover',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
-    flexDirection: 'column'
-  },
+  container: {},
   discountValue: {
     fontSize: '2.5rem'
   },
@@ -52,7 +45,7 @@ const styles = {
     top: 150,
     right: 80
   }),
-  icon: { color: 'transparent', m: 0 },
+  icon: { color: 'common.white', m: 0 },
   bottomSpace: { mb: '8rem' }
 };
 
@@ -63,7 +56,11 @@ function Hero({ blok }) {
       textAlign="center"
       sx={{
         backgroundImage: `url( ${blok.bgImage.filename})`,
-        ...styles.container
+        height: '100vh',
+        backgroundSize: 'cover',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-end',
+        flexDirection: 'column'
       }}
       spacing={2}
     >

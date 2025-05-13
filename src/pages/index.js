@@ -16,7 +16,7 @@ export default function Home({ story }) {
       </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeProvider theme={theme}>
-          <div className={myFont.className}>
+          <div className={myFont.variable}>
             <CssBaseline />
             <StoryblokComponent blok={story.content} />
           </div>

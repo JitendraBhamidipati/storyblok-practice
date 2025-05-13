@@ -58,7 +58,9 @@ const CheckField = props => {
             }
             label={
               label ? (
-                <FormLabel sx={{ color: 'common.black' }}>{label}</FormLabel>
+                <FormLabel sx={{ color: 'common.black', fontSize: '0.825rem' }}>
+                  {label}
+                </FormLabel>
               ) : null
             }
             labelPlacement="end"

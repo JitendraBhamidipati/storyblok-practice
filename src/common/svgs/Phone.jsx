@@ -4,11 +4,11 @@ import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
 function Phone(props) {
-  const { sx, width, height, ...rest } = props;
+  const { sx = {}, width = 18, height = 18, ...rest } = props;
 
   return (
     <SvgIcon
-      sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}
+      sx={[styles.icon, { width, height }, ...(Array.isArray(sx) ? sx : [sx])]}
       fontSize="small"
       viewBox="0 0 24 24"
       {...rest}
@@ -27,7 +27,5 @@ Phone.propTypes = {
     PropTypes.object
   ])
 };
-
-Phone.defaultProps = { sx: {} };
 
 export default Phone;
