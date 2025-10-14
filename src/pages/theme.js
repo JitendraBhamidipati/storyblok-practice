@@ -6,7 +6,8 @@ const theme = createTheme({
     mode: 'light',
     primary: { main: '#000' },
     colors: {
-      footerBackground: '#F3F1E9'
+      footerBackground: '#F3F1E9',
+      dotColor: '#333333'
     }
   },
   cssVariables: true,

@@ -36,7 +36,12 @@ export const resolveRelations = [
   'mainFooter.surfInstructorLinks',
   'mainFooter.locationLinks',
   'hero.booking',
+  'campaign.to',
+  'campaign.to2',
+  'bungalowCard.to',
+  'bungalowCard.to2',
   'header.menus',
+  'banner.to',
   'header.mainMenu',
   'header.accommodation',
   'header.surfcamps'

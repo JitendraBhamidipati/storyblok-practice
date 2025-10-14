@@ -6,7 +6,6 @@ import { Button } from '@/common';
 
 const styles = {
   container: color => ({
-    justifyContent: 'space-around',
     alignItems: 'center',
     p: '2rem',
     bgcolor: color
@@ -37,7 +36,7 @@ function Subscribe({ blok }) {
           </Typography>
           <Typography>{blok.caption}</Typography>
         </Grid>
-        <Grid size={5} container spacing={2}>
+        <Grid size={5} offset={1} container spacing={2}>
           <Grid size={12}>
             <TextField sx={styles.fields} label={blok.field1} name="username" />
           </Grid>

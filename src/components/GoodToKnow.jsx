@@ -7,7 +7,7 @@ const styles = {
   heading: { fontSize: '2.5rem', fontWeight: 'bold' }
 };
 
-const GoodToKnow = ({ blok }) => {
+function GoodToKnow({ blok }) {
   const { heading, items } = blok;
   return (
     <Grid container justifyContent="center" spacing={2} sx={styles.container}>
@@ -21,6 +21,6 @@ const GoodToKnow = ({ blok }) => {
       </Grid>
     </Grid>
   );
-};
+}
 
 export default GoodToKnow;

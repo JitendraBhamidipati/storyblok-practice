@@ -12,20 +12,15 @@ import { ExpandMoreIcon } from './svgs';
 const styles = {
   wrapper: {
     display: 'flex',
+    position: 'relative',
     flex: 1,
     flexDirection: 'column',
     overflow: 'hidden'
   },
   prevButton: {
-    color: 'text.primary',
-    bgcolor: 'transparent',
-    border: '1px solid',
-    borderColor: 'text.primary',
-    borderRadius: '2px',
-    '&:disabled': {
-      borderColor: 'colors.disabled',
-      color: 'colors.disabled'
-    }
+    color: 'common.white',
+    borderRadius: '50%',
+    p: '2px'
   },
   dot: {
     height: 10,
@@ -38,19 +33,41 @@ const styles = {
   inactiveDot: { bgcolor: 'colors.disabled' },
   prevButtonWrap: { textAlign: 'left' },
   nextButton: {
-    color: 'text.primary',
-    bgcolor: 'transparent',
+    color: 'common.white',
     ml: 'calc(100% - 90px)',
-    border: '1px solid',
-    borderColor: 'text.primary',
-    borderRadius: '2px',
-    '&:disabled': {
-      borderColor: 'colors.disabled',
-      color: 'colors.disabled'
-    }
+    p: '2px',
+    borderRadius: '50%'
   },
   nextButtonWrap: { textAlign: 'right' },
-  container: { mb: '1rem', mt: 0, cursor: 'pointer', px: '2rem' }
+  nextSideButton: {
+    position: 'absolute',
+    color: 'common.black',
+    top: '45%',
+    right: -60
+  },
+  prevSideButton: {
+    position: 'absolute',
+    color: 'common.black',
+    top: '45%',
+    left: -60
+  },
+  nextBtnPosition: {
+    position: 'absolute',
+    bgcolor: 'colors.dotColor',
+    '&:disabled': { color: 'colors.disabled' },
+    '&:hover': { bgcolor: 'grey' },
+    top: '45%',
+    right: 10
+  },
+  prevBtnPosition: {
+    position: 'absolute',
+    bgcolor: 'colors.dotColor',
+    '&:disabled': { color: 'colors.disabled' },
+    '&:hover': { bgcolor: 'grey' },
+    top: '45%',
+    left: 10
+  },
+  container: { mt: 0, cursor: 'pointer' }
 };
 
 function hideElement(x) {
@@ -108,7 +125,7 @@ function Swiper(props) {
 }
 
 Swiper.propTypes = {
-  containerProps: PropTypes.object.isRequired,
+  containerProps: PropTypes.object,
   slideDirection: PropTypes.string.isRequired,
   slides: PropTypes.array.isRequired,
   value: PropTypes.number.isRequired,
@@ -146,17 +163,19 @@ Dot.propTypes = {
 
 function Carousel(props) {
   const {
+    sx,
     slides,
     slidesPerView = 3,
+    buttonType = 'onImage',
     isCircular = false,
     isAutoPlay = false,
     isSlideSkip = true,
     isDesktopSwipe = true,
     autoPlayDuration = 5000,
-    containerProps
+    containerProps = {},
+    showDots = false
   } = props;
   const { containerStyles, spacing } = containerProps;
-
   const theme = useTheme();
   const [value, setValue] = useState(1);
   const [viewSlides, setViewSlides] = useState([]);
@@ -284,7 +303,14 @@ function Carousel(props) {
   }, [isAutoPlay, autoPlayDuration, handleNext]);
 
   return (
-    <Grid id="swiper" sx={styles.wrapper}>
+    <Grid
+      id="swiper"
+      sx={[
+        styles.wrapper,
+        buttonType === 'side' && { overflow: 'visible' },
+        ...(Array.isArray(sx) ? sx : [sx])
+      ]}
+    >
       {viewSlides.map(viewSlide => (
         <Swiper
           key={viewSlide.key}
@@ -298,51 +324,76 @@ function Carousel(props) {
         <Grid
           alignItems="center"
           container
-          justifyContent="center"
+          justifyContent={showDots ? 'center' : 'space-between'}
           spacing={spacing}
           sx={[
-            { px: '2rem' },
             ...(Array.isArray(containerStyles)
               ? containerStyles
               : [containerStyles])
           ]}
         >
           {!isSmallScreen && (
-            <Grid sx={styles.prevButtonWrap} size={1}>
+            <Grid
+              sx={[styles.prevButtonWrap, showDots && styles.prevBtnWrap]}
+              size={1}
+            >
               <IconButton
                 disabled={
                   !(isCircular || isAutoPlay) && value === viewSlides[0].key
                 }
                 onClick={handlePrev}
-                sx={styles.prevButton}
+                sx={[
+                  styles.prevButton,
+                  buttonType === 'onImage' && styles.prevBtnPosition,
+                  buttonType === 'side' && styles.prevSideButton
+                ]}
               >
-                <ExpandMoreIcon direction="left" />
+                <ExpandMoreIcon
+                  direction="left"
+                  width={buttonType === 'side' ? 48 : 18}
+                  height={buttonType === 'side' ? 48 : 18}
+                />
               </IconButton>
             </Grid>
           )}
-          <Grid alignItems="center" container justifyContent="center" size={10}>
-            {viewSlides.map((slide, index) => (
-              <Dot
-                key={slide.key.toString()}
-                index={index}
-                setSlideDirection={setSlideDirection}
-                setValue={setValue}
-                slide={slide}
-                value={value}
-              />
-            ))}
-          </Grid>
+          {showDots && (
+            <Grid
+              alignItems="center"
+              container
+              justifyContent="center"
+              size={10}
+            >
+              {viewSlides.map((slide, index) => (
+                <Dot
+                  key={slide.key.toString()}
+                  index={index}
+                  setSlideDirection={setSlideDirection}
+                  setValue={setValue}
+                  slide={slide}
+                  value={value}
+                />
+              ))}
+            </Grid>
+          )}
           {!isSmallScreen && (
-            <Grid sx={styles.nextButtonWrap} size={1}>
+            <Grid sx={[styles.nextButtonWrap]} size={1}>
               <IconButton
                 disabled={
                   !(isCircular || isAutoPlay) &&
                   value === viewSlides[viewSlides.length - 1].key
                 }
                 onClick={handleNext}
-                sx={styles.nextButton}
+                sx={[
+                  styles.nextButton,
+                  buttonType === 'onImage' && styles.nextBtnPosition,
+                  buttonType === 'side' && styles.nextSideButton
+                ]}
               >
-                <ExpandMoreIcon direction="right" />
+                <ExpandMoreIcon
+                  direction="right"
+                  width={buttonType === 'side' ? 48 : 18}
+                  height={buttonType === 'side' ? 48 : 18}
+                />
               </IconButton>
             </Grid>
           )}
@@ -355,6 +406,11 @@ function Carousel(props) {
 Carousel.propTypes = {
   autoPlayDuration: PropTypes.number,
   containerProps: PropTypes.object,
+  sx: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  ]),
   isAutoPlay: PropTypes.bool,
   isCircular: PropTypes.bool,
   isDesktopSwipe: PropTypes.bool,

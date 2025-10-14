@@ -28,12 +28,11 @@ function MainFooter({ blok }) {
     surfInstructorTitle,
     locationLinks,
     infoLinks,
-    surfInstructorLinks,
-    color
+    surfInstructorLinks
   } = blok;
 
   return (
-    <Grid container sx={[styles.container, { bgcolor: color.color }]}>
+    <Grid container sx={[styles.container]}>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
           <InfoIcon width={40} height={40} />

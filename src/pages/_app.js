@@ -14,6 +14,11 @@ import Subscribe from '@/components/Subscribe';
 import Certificates from '@/components/Certificates';
 import GoodToKnow from '@/components/GoodToKnow';
 import MainFooter from '@/components/MainFooter';
+import Campaign from '@/components/Campaign';
+import CarouselCards from '@/components/CarouselCards';
+import About from '@/components/About';
+import Banner from '@/components/Banner';
+import BungalowCard from '@/components/BungalowCard';
 
 const components = {
   page: Page,
@@ -26,8 +31,13 @@ const components = {
   hero: Hero,
   instaFeed: InstaFeed,
   subscribe: Subscribe,
+  campaign: Campaign,
   certificates: Certificates,
+  carouselCard: CarouselCards,
+  bungalowCard: BungalowCard,
   goodToKnow: GoodToKnow,
+  banner: Banner,
+  about: About,
   mainFooter: MainFooter
 };
 

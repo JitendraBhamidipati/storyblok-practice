@@ -4,15 +4,14 @@ import { LocationIcon } from '@/common/svgs';
 
 const styles = {
   container: {},
-  discountValue: {
-    fontSize: '2.5rem'
-  },
+  discountValue: { fontSize: '2.5rem', lineHeight: 1 },
   title: {
     fontSize: '60px',
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: 'common.white'
   },
+  label: { lineHeight: 1, textTransform: 'uppercase' },
   btn: {
     bgcolor: 'common.black',
     color: 'common.white',
@@ -25,10 +24,7 @@ const styles = {
     margin: 0,
     fontSize: '1.25rem'
   },
-  caption: {
-    fontSize: '2rem',
-    color: 'common.white'
-  },
+  caption: { fontSize: '2rem', color: 'common.white' },
   discount: color => ({
     display: 'flex',
     flexDirection: 'column',
@@ -89,8 +85,12 @@ function Hero({ blok }) {
       </Grid>
       {blok.discount && (
         <Grid sx={styles.discount(blok.themeColor.color)}>
-          <Grid sx={styles.discountValue}>{blok.discount}%</Grid>
-          <Grid>{blok.discountLabel}</Grid>
+          <Typography variant="button" sx={styles.discountValue}>
+            {blok.discount}%
+          </Typography>
+          <Typography variant="h6" sx={styles.label}>
+            {blok.discountLabel}
+          </Typography>
         </Grid>
       )}
       {blok.caption && (

@@ -39,7 +39,7 @@ const styles = {
   }
 };
 
-const Button = props => {
+function Button(props) {
   const {
     children,
     onClick,
@@ -66,7 +66,7 @@ const Button = props => {
       {children}
     </MuiButton>
   );
-};
+}
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,

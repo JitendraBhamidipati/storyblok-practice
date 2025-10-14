@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const ExpandMore = props => {
+function ExpandMore(props) {
   const {
     sx = {},
     width = 18,
@@ -27,7 +27,7 @@ const ExpandMore = props => {
       <path d="M7.406 8.578l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z"></path>
     </SvgIcon>
   );
-};
+}
 
 ExpandMore.propTypes = {
   direction: PropTypes.string,
