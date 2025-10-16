@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Carousel } from '@/common';
 
 const styles = {
-  container: { pb: '2rem', pt: '5rem', mx: '2rem', mb: '2rem' },
+  container: { pb: '3rem', pt: '4rem', mx: '2rem', mb: '2rem' },
   carouselWrap: { position: 'relative' },
   label: { lineHeight: 1, textTransform: 'uppercase' },
   discountValue: { fontSize: '2.5rem', lineHeight: 1 },
