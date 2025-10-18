@@ -67,7 +67,7 @@ const styles = {
     top: '45%',
     left: 10
   },
-  container: { mt: 0, cursor: 'pointer' }
+  container: { mt: 0 }
 };
 
 function hideElement(x) {

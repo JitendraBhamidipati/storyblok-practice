@@ -17,8 +17,8 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
-        p {
-          margin: 0;
+        * {
+          margin: 0
         }
         a {
           font-weight: bold;

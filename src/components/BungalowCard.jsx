@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@mui/material';
+import { Grid, Paper, Typography } from '@mui/material';
 import { renderRichText } from '@storyblok/react';
 import React from 'react';
 import Link from 'next/link';
@@ -27,6 +27,17 @@ const styles = {
       color: 'common.black'
     }
   },
+  bestSeller: {
+    position: 'absolute',
+    border: '1px solid',
+    px: '1rem',
+    display: 'flex',
+    alignItems: 'center',
+    top: 10,
+    left: 10,
+    bgcolor: 'common.white'
+  },
+  text: { ml: '1rem' },
   discount: color => ({
     display: 'flex',
     flexDirection: 'column',
@@ -43,12 +54,25 @@ const styles = {
     top: -50,
     left: -50,
     zIndex: 10
-  })
+  }),
+  btnWrap: { mt: '1rem' }
 };
 
 function BungalowCard({ blok }) {
-  const renderedRichText = renderRichText(blok.content);
-  const slides = blok.images.map(image => ({
+  const {
+    content,
+    images,
+    to,
+    to2,
+    alternate,
+    isBestSeller,
+    bestSellerText,
+    svg
+  } = blok;
+  const renderedRichText = renderRichText(content);
+  const [width, height] = svg?.source?.split('*') || [];
+
+  const slides = images.map(image => ({
     key: image.id,
     content: (
       <Grid
@@ -68,7 +92,7 @@ function BungalowCard({ blok }) {
       component={Paper}
       elevation={4}
       justifyContent="space-around"
-      flexDirection={blok.alternate ? 'row' : 'row-reverse'}
+      flexDirection={alternate ? 'row' : 'row-reverse'}
       sx={styles.container}
     >
       <Grid size={5.5} sx={styles.carouselWrap}>
@@ -79,21 +103,35 @@ function BungalowCard({ blok }) {
           isCircular
           isAutoPlay
         />
+        {isBestSeller && (
+          <Grid sx={styles.bestSeller}>
+            <Grid
+              component="img"
+              alt={svg.alt}
+              width={`${width}px`}
+              height={`${height}px`}
+              src={svg.filename}
+            />
+            <Typography variant="button" sx={styles.text}>
+              {bestSellerText}
+            </Typography>
+          </Grid>
+        )}
       </Grid>
       <Grid size={5}>
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
-        <Grid container>
+        <Grid container sx={styles.btnWrap}>
           <Grid size={5.5}>
-            {blok.to && (
+            {to && (
               <Button variant="contained" sx={[styles.btn]}>
-                <Link href={blok.to.full_slug}>{blok.to.name}</Link>
+                <Link href={to.full_slug}>{to.name}</Link>
               </Button>
             )}
           </Grid>
           <Grid size={5.5}>
-            {blok.to2 && (
+            {to2 && (
               <Button variant="outlined" sx={[styles.btn2]}>
-                <Link href={blok.to2.full_slug}>{blok.to2.name}</Link>
+                <Link href={to2.full_slug}>{to2.name}</Link>
               </Button>
             )}
           </Grid>
