@@ -61,7 +61,7 @@ function CarouselCards({ blok }) {
       </Grid>
       <Grid size={12}>
         <Carousel
-          key="side-buttons-carousel"
+          key={blok.id}
           buttonType="side"
           sx={styles.carousel}
           slides={slides}

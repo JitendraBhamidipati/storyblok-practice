@@ -1,6 +1,7 @@
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import { LocationIcon } from '@/common/svgs';
+import { Button } from '@/common';
 
 const styles = {
   container: {},
@@ -94,7 +95,7 @@ function Hero({ blok }) {
         </Grid>
       )}
       {blok.caption && (
-        <Grid size={12} offset={1} textAlign="left">
+        <Grid size={11} offset={1} textAlign="left">
           <Typography variant="h4" sx={styles.caption}>
             {blok.caption}
           </Typography>

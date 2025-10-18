@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
-import { HouseIcon } from '@/common/svgs';
 import { CheckField, TextField } from '@/common/ReactHookForm';
 import { Button } from '@/common';
 
@@ -17,6 +16,8 @@ const styles = {
 };
 
 function Subscribe({ blok }) {
+  const { svg } = blok;
+  const [width, height] = svg?.source?.split('*') || [];
   const { handleSubmit, watch, reset, getValues, ...methods } = useForm({
     mode: 'onTouched',
     defaultValues: { username: '', email: '', terms: false }
@@ -30,7 +31,13 @@ function Subscribe({ blok }) {
     <FormProvider {...methods}>
       <Grid container sx={styles.container(blok.color.color)}>
         <Grid size={5}>
-          <HouseIcon />
+          <Grid
+            component="img"
+            alt={svg.alt}
+            width={`${width}px`}
+            height={`${height}px`}
+            src={svg.filename}
+          />
           <Typography component="h2" variant="h3">
             {blok.title}
           </Typography>

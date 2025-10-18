@@ -1,8 +1,8 @@
-import { Button, Grid, Paper } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import { renderRichText } from '@storyblok/react';
 import React from 'react';
 import Link from 'next/link';
-import { Carousel } from '@/common';
+import { Button, Carousel } from '@/common';
 
 const styles = {
   container: { pb: '3rem', pt: '4rem', mx: '2rem', mb: '2rem' },
@@ -72,7 +72,13 @@ function BungalowCard({ blok }) {
       sx={styles.container}
     >
       <Grid size={5.5} sx={styles.carouselWrap}>
-        <Carousel slides={slides} slidesPerView={1} isCircular isAutoPlay />
+        <Carousel
+          key={blok.id}
+          slides={slides}
+          slidesPerView={1}
+          isCircular
+          isAutoPlay
+        />
       </Grid>
       <Grid size={5}>
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />

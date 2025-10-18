@@ -1,8 +1,8 @@
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { renderRichText } from '@storyblok/react';
 import React from 'react';
 import Link from 'next/link';
-import { Carousel } from '@/common';
+import { Button, Carousel } from '@/common';
 
 const styles = {
   container: { pb: '2rem', pt: '5rem' },
@@ -82,7 +82,13 @@ function Campaign({ blok }) {
             </Typography>
           </Grid>
         )}
-        <Carousel slides={slides} slidesPerView={1} isCircular isAutoPlay />
+        <Carousel
+          key={blok.id}
+          slides={slides}
+          slidesPerView={1}
+          isCircular
+          isAutoPlay
+        />
       </Grid>
       <Grid size={5}>
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />

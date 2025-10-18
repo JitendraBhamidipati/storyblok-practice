@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import { Button, Grid, Toolbar, MenuItem, Menu } from '@mui/material';
+import { Grid, Toolbar, MenuItem, Menu } from '@mui/material';
 import Link from 'next/link';
+import { Button } from '@/common';
 
 const styles = {
   link: {
@@ -13,6 +14,8 @@ const styles = {
     '& a': { color: 'common.black' }
   },
   btn: {
+    cursor: 'pointer',
+    color: 'common.black',
     fontWeight: 'bold'
   },
   scroll: {
@@ -95,14 +98,14 @@ export default function ElevateAppBar(props) {
               ))}
             </Grid>
             <Grid size={2} sx={styles.link}>
-              <Button sx={styles.btn} variant="text" onClick={handleClick}>
+              <Grid sx={styles.btn} variant="text" onClick={handleClick}>
                 Surf Camps
-              </Button>
+              </Grid>
             </Grid>
             <Grid size={2} sx={styles.link}>
-              <Button sx={styles.btn} variant="text" onClick={handleClick}>
+              <Grid sx={styles.btn} variant="text" onClick={handleClick}>
                 Accommodation
-              </Button>
+              </Grid>
             </Grid>
             {menus.map(menu => (
               <Grid key={menu.id} size={2} sx={styles.link}>

@@ -22,7 +22,6 @@ const theme = createTheme({
         }
         a {
           font-weight: bold;
-          color: white;
           text-decoration: none;
         }
       `

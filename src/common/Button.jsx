@@ -6,6 +6,7 @@ const styles = {
   buttonStyle: {
     fontSize: '1rem',
     transition: 'all 0.3s ease-in-out',
+    '& a': { color: 'common.white' },
     '&:hover': {
       transform: 'translateY(-5px)',
       boxShadow: 2,
@@ -72,11 +73,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  sx: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object,
-    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
-  ]),
+  sx: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   variant: PropTypes.string
 };
 

@@ -19,6 +19,13 @@ import CarouselCards from '@/components/CarouselCards';
 import About from '@/components/About';
 import Banner from '@/components/Banner';
 import BungalowCard from '@/components/BungalowCard';
+import MapCard from '@/components/MapCard';
+import ImageCard from '@/components/ImageCard';
+import Amenities from '@/components/Amenities';
+import Amenity from '@/components/Amenity';
+import SportsCard from '@/components/SportsCard';
+import AddonCard from '@/components/AddonCard';
+import DiscountCard from '@/components/DiscountCard';
 
 const components = {
   page: Page,
@@ -27,7 +34,14 @@ const components = {
   footer: Footer,
   header: Header,
   content: Content,
+  amenities: Amenities,
+  amenity: Amenity,
+  discountCard: DiscountCard,
   'speed-dial': SpeedDial,
+  addOnCard: AddonCard,
+  sportsCard: SportsCard,
+  imageCard: ImageCard,
+  mapCard: MapCard,
   hero: Hero,
   instaFeed: InstaFeed,
   subscribe: Subscribe,

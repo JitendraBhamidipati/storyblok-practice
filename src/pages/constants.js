@@ -42,6 +42,9 @@ export const resolveRelations = [
   'bungalowCard.to2',
   'header.menus',
   'banner.to',
+  'discountCard.to',
+  'imageCard.to',
+  'imageCard.svg',
   'header.mainMenu',
   'header.accommodation',
   'header.surfcamps'

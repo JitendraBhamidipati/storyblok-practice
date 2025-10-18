@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Link from 'next/link';
+import { Button } from '@/common';
 
 const styles = {
   container: color => ({
@@ -32,7 +33,7 @@ function Banner({ blok }) {
   const { image, title, bgcolor, textColor } = blok;
   return (
     <Grid container sx={styles.container(bgcolor)}>
-      <Grid size={6} textAlign="center">
+      <Grid offset={1} size={4} textAlign="center">
         <Grid sx={styles.circle(textColor)} />
         <Typography
           textAlign="center"
@@ -48,7 +49,7 @@ function Banner({ blok }) {
           </Button>
         )}
       </Grid>
-      <Grid size={6}>
+      <Grid offset={1} size={6}>
         <Grid
           key={image.id}
           component="img"
