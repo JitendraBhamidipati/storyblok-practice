@@ -1,30 +1,57 @@
 import localFont from 'next/font/local';
 
 // Font files can be colocated inside of `app`
-export const myFont = localFont({
+export const normFont = localFont({
   src: [
     {
-      path: '../common/Assets/SimplonNorm-Regular.ttf',
+      path: '../common/Assets/Fonts/SimplonNorm-Regular.ttf',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../common/Assets/SimplonNorm-Bold.ttf',
+      path: '../common/Assets/Fonts/SimplonNorm-Bold.ttf',
       weight: '700',
       style: 'normal'
     },
     {
-      path: '../common/Assets/SimplonNorm-Medium.ttf',
+      path: '../common/Assets/Fonts/SimplonNorm-Medium.ttf',
       weight: '500',
       style: 'normal'
     },
     {
-      path: '../common/Assets/SimplonNorm-Light.ttf',
+      path: '../common/Assets/Fonts/SimplonNorm-Light.ttf',
       weight: '300',
       style: 'normal'
     }
   ],
-  variable: '--font-Simplon',
+  variable: '--font-norm',
+  display: 'swap'
+});
+
+export const monoFont = localFont({
+  src: [
+    {
+      path: '../common/Assets/Fonts/SimplonMono-Regular.ttf',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../common/Assets/Fonts/SimplonMono-Bold.ttf',
+      weight: '700',
+      style: 'normal'
+    },
+    {
+      path: '../common/Assets/Fonts/SimplonMono-Medium.ttf',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../common/Assets/Fonts/SimplonMono-Light.ttf',
+      weight: '300',
+      style: 'normal'
+    }
+  ],
+  variable: '--font-mono',
   display: 'swap'
 });
 

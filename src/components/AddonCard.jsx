@@ -11,7 +11,7 @@ const styles = {
 
 function AddonCard({ blok }) {
   const { title, infoSvg, note, addons } = blok;
-  const [width, height] = infoSvg?.source?.split('*') || ['100%', '100%'];
+
   return (
     <Grid container sx={styles.conatiner} spacing={2}>
       <Grid size={12}>
@@ -33,14 +33,14 @@ function AddonCard({ blok }) {
       ))}
       <Grid size={4}>
         <Typography variant="body1" sx={styles.info}>
-          {infoSvg && (
+          {infoSvg.filename && (
             <Grid
               component="img"
               alt={infoSvg.alt}
-              width={`${width}px`}
-              height={`${height}px`}
               src={infoSvg.filename}
               sx={styles.infoIcon}
+              width="fit-content"
+              height="fit-content"
             />
           )}
           {note}

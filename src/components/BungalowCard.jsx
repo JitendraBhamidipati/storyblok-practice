@@ -31,6 +31,7 @@ const styles = {
     position: 'absolute',
     border: '1px solid',
     px: '1rem',
+    py: '0.3125rem',
     display: 'flex',
     alignItems: 'center',
     top: 10,
@@ -70,7 +71,6 @@ function BungalowCard({ blok }) {
     svg
   } = blok;
   const renderedRichText = renderRichText(content);
-  const [width, height] = svg?.source?.split('*') || [];
 
   const slides = images.map(image => ({
     key: image.id,
@@ -108,8 +108,8 @@ function BungalowCard({ blok }) {
             <Grid
               component="img"
               alt={svg.alt}
-              width={`${width}px`}
-              height={`${height}px`}
+              width="fit-content"
+              height="fit-content"
               src={svg.filename}
             />
             <Typography variant="button" sx={styles.text}>

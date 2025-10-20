@@ -4,28 +4,44 @@ import { LocationIcon } from '@/common/svgs';
 import { Button } from '@/common';
 
 const styles = {
-  container: {},
+  container: image => ({
+    backgroundImage: `url( ${image})`,
+    height: '100vh',
+    backgroundSize: 'cover',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    flexDirection: 'column'
+  }),
   discountValue: { fontSize: '2.5rem', lineHeight: 1 },
   title: {
     fontSize: '60px',
     fontWeight: 'bold',
+    letterSpacing: 10,
+    ml: '3rem',
+    width: '50%',
     textTransform: 'uppercase',
     color: 'common.white'
   },
-  label: { lineHeight: 1, textTransform: 'uppercase' },
+  label: { textTransform: 'uppercase' },
   btn: {
     bgcolor: 'common.black',
     color: 'common.white',
     fontWeight: 'bold',
+    ml: '3rem',
     mt: '4rem',
     px: '8rem'
   },
   location: {
     color: 'common.white',
     margin: 0,
+    ml: '3rem',
     fontSize: '1.25rem'
   },
-  caption: { fontSize: '2rem', color: 'common.white' },
+  caption: {
+    fontSize: '2rem',
+    ml: '3rem',
+    color: 'common.white'
+  },
   discount: color => ({
     display: 'flex',
     flexDirection: 'column',
@@ -47,25 +63,15 @@ const styles = {
 };
 
 function Hero({ blok }) {
+  const { bgImage } = blok;
   return (
     <Grid
       container
       textAlign="center"
-      sx={{
-        backgroundImage: `url( ${blok.bgImage.filename})`,
-        height: '100vh',
-        backgroundSize: 'cover',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        flexDirection: 'column'
-      }}
+      sx={styles.container(bgImage.filename)}
       spacing={2}
     >
-      <Grid
-        size={{ xs: 12, sm: 10, md: 8, lg: 6, xl: 4 }}
-        offset={1}
-        textAlign="left"
-      >
+      <Grid size={{ xs: 11, sm: 10, md: 8, lg: 6 }} textAlign="left">
         {blok.location && (
           <Typography variant="h6" sx={styles.location}>
             <LocationIcon sx={styles.icon} /> {blok.location}
@@ -74,6 +80,11 @@ function Hero({ blok }) {
         <Typography variant="h1" sx={styles.title}>
           {blok.title}
         </Typography>
+        {blok.caption && (
+          <Typography variant="h4" sx={styles.caption}>
+            {blok.caption}
+          </Typography>
+        )}
         <Button
           variant="contained"
           sx={[
@@ -94,20 +105,16 @@ function Hero({ blok }) {
           </Typography>
         </Grid>
       )}
-      {blok.caption && (
-        <Grid size={11} offset={1} textAlign="left">
-          <Typography variant="h4" sx={styles.caption}>
-            {blok.caption}
-          </Typography>
-        </Grid>
-      )}
       {blok.banner && (
         <Grid
           size={12}
           sx={{
             bgcolor: blok.themeColor.color,
-            maxHeight: 60,
-            textAlign: 'center'
+            height: 60,
+            textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <Typography variant="body1">{blok.banner}</Typography>

@@ -17,7 +17,6 @@ const styles = {
 
 function Subscribe({ blok }) {
   const { svg } = blok;
-  const [width, height] = svg?.source?.split('*') || [];
   const { handleSubmit, watch, reset, getValues, ...methods } = useForm({
     mode: 'onTouched',
     defaultValues: { username: '', email: '', terms: false }
@@ -31,13 +30,15 @@ function Subscribe({ blok }) {
     <FormProvider {...methods}>
       <Grid container sx={styles.container(blok.color.color)}>
         <Grid size={5}>
-          <Grid
-            component="img"
-            alt={svg.alt}
-            width={`${width}px`}
-            height={`${height}px`}
-            src={svg.filename}
-          />
+          {svg.filename && (
+            <Grid
+              component="img"
+              alt={svg.alt}
+              src={svg.filename}
+              width="fit-content"
+              height="fit-content"
+            />
+          )}
           <Typography component="h2" variant="h3">
             {blok.title}
           </Typography>

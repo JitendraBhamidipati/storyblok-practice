@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { myFont } from './constants';
+import { monoFont, normFont } from './constants';
 
 const theme = createTheme({
   palette: {
@@ -12,7 +12,7 @@ const theme = createTheme({
   },
   cssVariables: true,
   typography: {
-    fontFamily: myFont.style.fontFamily
+    fontFamily: [normFont.style.fontFamily]
   },
   components: {
     MuiCssBaseline: {
@@ -25,6 +25,20 @@ const theme = createTheme({
           text-decoration: none;
         }
       `
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontFamily: monoFont.style.fontFamily
+        }
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          lineHeight: 1.25
+        }
+      }
     }
   }
 });

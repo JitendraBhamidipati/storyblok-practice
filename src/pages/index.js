@@ -2,10 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import { getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import theme from './theme';
-import { myFont, resolveRelations } from './constants';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import theme from './theme';
+import { monoFont, normFont, resolveRelations } from './constants';
 
 export default function Home({ story }) {
   return (
@@ -16,7 +16,7 @@ export default function Home({ story }) {
       </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeProvider theme={theme}>
-          <div className={myFont.variable}>
+          <div className={`${normFont.variable} ${monoFont.variable}`}>
             <CssBaseline />
             <StoryblokComponent blok={story.content} />
           </div>

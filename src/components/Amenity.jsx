@@ -15,8 +15,7 @@ const styles = {
 };
 
 function Amenity({ blok }) {
-  const { text, title, svg, bgcolor, price } = blok;
-  const [width, height] = svg?.source?.split('*') || ['100%', '100%'];
+  const { text, title, svg, bgcolor, price, title2 } = blok;
 
   return (
     <React.Fragment>
@@ -24,12 +23,13 @@ function Amenity({ blok }) {
         <Grid
           component="img"
           alt={svg.alt}
-          width={`${width}px`}
-          height={`${height}px`}
+          width={40}
+          height={40}
           src={svg.filename}
         />
       </Grid>
       {title && <Typography variant="h4">{title}</Typography>}
+      {title2 && <Typography variant="h6">{title2}</Typography>}
       <Typography variant="body" sx={styles.text}>
         {text}
       </Typography>

@@ -11,7 +11,7 @@ const styles = {
   }),
   title: {
     fontSize: '3rem',
-    fontWeight: 700,
+    fontWeight: 500,
     lineHeight: 1,
     mb: '3.5rem',
     mt: '1rem'
@@ -20,34 +20,36 @@ const styles = {
   btn: {
     width: 'inherit',
     mb: '2rem',
-    mt: 'auto'
+    mt: '3rem'
   }
 };
 
 function ImageCard({ blok }) {
   const { image, title, bgcolor, isBtnFilled, content, svg } = blok;
   const renderedRichText = renderRichText(content);
-  const [width, height] = svg?.source?.split('*') || [];
 
   return (
     <Grid
       container
       sx={styles.container(bgcolor)}
       justifyContent="space-around"
+      alignItems="flex-start"
     >
       <Grid size={5} container flexDirection="column">
-        {svg && (
+        {svg.filename && (
           <Grid
             component="img"
             alt={svg.alt}
-            width={`${width}px`}
-            height={`${height}px`}
             src={svg.filename}
+            width="fit-content"
+            height="fit-content"
           />
         )}
-        <Typography variant="button" component="h2" sx={styles.title}>
-          {title}
-        </Typography>
+        {title && (
+          <Typography variant="button" component="h2" sx={styles.title}>
+            {title}
+          </Typography>
+        )}
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
         {blok.to && (
           <Button
