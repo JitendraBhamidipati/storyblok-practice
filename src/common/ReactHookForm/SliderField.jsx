@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Controller, useFormContext } from 'react-hook-form';
 import { Slider } from '@mui/material';
 
-const SliderField = props => {
+function SliderField(props) {
   const {
     required = false,
     name,
@@ -40,7 +40,7 @@ const SliderField = props => {
       }}
     />
   );
-};
+}
 
 SliderField.propTypes = {
   max: PropTypes.number,

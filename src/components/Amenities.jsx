@@ -20,7 +20,7 @@ function Amenities({ blok }) {
       {amenities.map(amenity => (
         <Grid
           size={12 / amenities.length}
-          key={amenity.id}
+          key={amenity._uid}
           container
           textAlign="center"
           alignItems="center"

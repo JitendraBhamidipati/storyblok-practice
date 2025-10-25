@@ -3,12 +3,10 @@ import {
   Accordion as MuiAccordion,
   AccordionSummary,
   AccordionDetails,
-  Typography,
-  useTheme
+  Typography
 } from '@mui/material';
-import { ExpandMoreIcon } from './svgs';
 import { StoryblokComponent } from '@storyblok/react';
-import theme from '@/pages/theme';
+import { ExpandMoreIcon } from './svgs';
 
 const styles = {
   accordion: theme => ({
@@ -29,7 +27,6 @@ export default function Accordion(props) {
   };
 
   return data.map(item => {
-    const theme = useTheme();
     return (
       <MuiAccordion
         sx={styles.accordion}

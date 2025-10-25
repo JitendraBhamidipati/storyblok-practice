@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 
-const RadioField = props => {
+function RadioField(props) {
   const {
     required = false,
     name,
@@ -72,7 +72,7 @@ const RadioField = props => {
       }}
     />
   );
-};
+}
 
 RadioField.propTypes = {
   defaultValue: PropTypes.string,

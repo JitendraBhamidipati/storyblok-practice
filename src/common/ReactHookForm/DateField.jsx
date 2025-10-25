@@ -4,7 +4,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { DatePicker } from '@mui/x-date-pickers';
 import { DATE_FORMAT } from './helpers';
 
-const DateField = props => {
+function DateField(props) {
   const {
     required = false,
     name,
@@ -51,7 +51,7 @@ const DateField = props => {
       }}
     />
   );
-};
+}
 
 DateField.propTypes = {
   helperText: PropTypes.string,

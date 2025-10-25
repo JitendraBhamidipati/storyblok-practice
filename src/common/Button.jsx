@@ -72,8 +72,8 @@ function Button(props) {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  sx: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  onClick: PropTypes.func,
+  sx: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.func]),
   variant: PropTypes.string
 };
 

@@ -4,7 +4,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { MobileTimePicker } from '@mui/x-date-pickers';
 import { TIME_FORMAT, parseTime } from './helpers';
 
-const TimeField = props => {
+function TimeField(props) {
   const {
     required = false,
     name,
@@ -59,7 +59,7 @@ const TimeField = props => {
       }}
     />
   );
-};
+}
 
 TimeField.propTypes = {
   helperText: PropTypes.string,

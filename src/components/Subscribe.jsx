@@ -23,6 +23,7 @@ function Subscribe({ blok }) {
   });
 
   const submitForm = values => {
+    // eslint-disable-next-line no-console
     console.log('values: ' + values);
   };
 

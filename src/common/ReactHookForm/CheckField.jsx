@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 
-const CheckField = props => {
+function CheckField(props) {
   const {
     required = false,
     name,
@@ -79,7 +79,7 @@ const CheckField = props => {
       }}
     />
   );
-};
+}
 
 CheckField.propTypes = {
   defaultValue: PropTypes.string,

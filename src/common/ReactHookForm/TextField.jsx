@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Controller, useFormContext } from 'react-hook-form';
 import { InputAdornment, TextField as MuiTextField } from '@mui/material';
-import { IconButton } from '..';
-import { VisibilityOffIcon } from '../svgs';
+import { IconButton } from '../index';
+import { VisibilityOffIcon, VisibilityOnIcon } from '../svgs';
 // import { typeValidation } from './helpers';
 
-const TextField = props => {
+function TextField(props) {
   const {
     required = false,
     name,
@@ -83,7 +83,7 @@ const TextField = props => {
       }}
     />
   );
-};
+}
 
 TextField.propTypes = {
   helperText: PropTypes.string,

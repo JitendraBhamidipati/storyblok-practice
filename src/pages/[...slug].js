@@ -4,8 +4,8 @@ import { getStoryblokApi, StoryblokComponent } from '@storyblok/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { monoFont, normFont, resolveRelations } from './constants';
-import theme from './theme';
+import { monoFont, normFont, resolveRelations } from '../constants';
+import theme from '../theme';
 
 export default function Page({ story }) {
   return (

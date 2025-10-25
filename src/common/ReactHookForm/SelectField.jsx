@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormControl, FormHelperText, InputLabel, Select } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 
-const SelectField = props => {
+function SelectField(props) {
   const {
     required = false,
     name,
@@ -77,7 +77,7 @@ const SelectField = props => {
       }}
     />
   );
-};
+}
 
 SelectField.propTypes = {
   defaultValue: PropTypes.string,

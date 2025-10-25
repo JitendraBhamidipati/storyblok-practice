@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Autocomplete, TextField } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 
-const AutoCompleteField = props => {
+function AutoCompleteField(props) {
   const {
     required = false,
     name,
@@ -68,7 +68,7 @@ const AutoCompleteField = props => {
       }}
     />
   );
-};
+}
 
 AutoCompleteField.propTypes = {
   defaultValue: PropTypes.string,

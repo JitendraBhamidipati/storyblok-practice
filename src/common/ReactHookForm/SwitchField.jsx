@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 
-const SwitchField = props => {
+function SwitchField(props) {
   const {
     required = false,
     name,
@@ -74,7 +74,7 @@ const SwitchField = props => {
       }}
     />
   );
-};
+}
 
 SwitchField.propTypes = {
   defaultValue: PropTypes.string,
