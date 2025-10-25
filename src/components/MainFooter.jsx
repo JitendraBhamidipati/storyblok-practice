@@ -29,8 +29,7 @@ function MainFooter({ blok }) {
     locationTitle,
     surfInstructorTitle,
     locationLinks,
-    surfInstructorLinks,
-    links
+    surfInstructorLinks
   } = blok;
 
   return (
@@ -40,11 +39,11 @@ function MainFooter({ blok }) {
           <InfoIcon width={40} height={40} sx={styles.icon} />
           {infoTitle}
         </Typography>
-        {links.map(item => (
+        {/* {links.map(item => (
           <Grid key={item.id} sx={styles.link}>
             <Link href={item.link.cached_url}>{item.text}</Link>
           </Grid>
-        ))}
+        ))} */}
       </Grid>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
