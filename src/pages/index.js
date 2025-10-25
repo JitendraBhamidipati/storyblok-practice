@@ -41,7 +41,7 @@ export async function getStaticProps() {
     props: {
       story: data ? data.story : false,
       key: data ? data.story.id : false
-    },
-    revalidate: 3600
+    }
+    // revalidate: 3600
   };
 }
