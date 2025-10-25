@@ -18,7 +18,7 @@ const styles = {
     fontWeight: 'bold',
     letterSpacing: 10,
     ml: '3rem',
-    width: '50%',
+    width: '60%',
     textTransform: 'uppercase',
     color: 'common.white'
   },

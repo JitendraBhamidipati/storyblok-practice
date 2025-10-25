@@ -19,7 +19,7 @@ function Team({ blok }) {
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
       </Grid>
       {blok.members.map(member => (
-        <Grid key={member._uid} size={6}>
+        <Grid key={member._uid} size={{ xs: 12, sm: 6 }}>
           <StoryblokComponent blok={member} height={200} width="100%" />
         </Grid>
       ))}

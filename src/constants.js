@@ -59,7 +59,6 @@ export const resolveRelations = [
   'page.header',
   'page.speed_dial',
   'page.footer',
-  'mainFooter.infoLinks',
   'mainFooter.surfInstructorLinks',
   'mainFooter.locationLinks',
   'hero.booking',

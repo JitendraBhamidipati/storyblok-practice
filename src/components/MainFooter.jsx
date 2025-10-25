@@ -14,7 +14,9 @@ const styles = {
     alignItems: 'flex-start',
     p: '2rem'
   },
-  contact: { mb: '1rem', fontWeight: 'bold' }
+  icon: { mr: '0.5rem' },
+  contact: { mb: '1rem', fontWeight: 'bold' },
+  link: { '& a': { color: 'common.black', fontWeight: '400' } }
 };
 
 function MainFooter({ blok }) {
@@ -27,55 +29,55 @@ function MainFooter({ blok }) {
     locationTitle,
     surfInstructorTitle,
     locationLinks,
-    infoLinks,
-    surfInstructorLinks
+    surfInstructorLinks,
+    links
   } = blok;
 
   return (
-    <Grid container sx={[styles.container]}>
+    <Grid container sx={[styles.container]} spacing={2}>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
-          <InfoIcon width={40} height={40} />
+          <InfoIcon width={40} height={40} sx={styles.icon} />
           {infoTitle}
         </Typography>
-        {infoLinks.map(item => (
-          <Grid key={item.id}>
-            <Link href={item.full_slug}>{item.name}</Link>
+        {links.map(item => (
+          <Grid key={item.id} sx={styles.link}>
+            <Link href={item.link.cached_url}>{item.text}</Link>
           </Grid>
         ))}
       </Grid>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
-          <SurfInstructorIcon width={40} height={40} />
+          <SurfInstructorIcon width={40} height={40} sx={styles.icon} />
           {surfInstructorTitle}
         </Typography>
         {surfInstructorLinks.map(item => (
-          <Grid key={item.id}>
+          <Grid key={item.id} sx={styles.link}>
             <Link href={item.full_slug}>{item.name}</Link>
           </Grid>
         ))}
       </Grid>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
-          <LocationIcon width={40} height={40} />
+          <LocationIcon width={40} height={40} sx={styles.icon} />
           {locationTitle}
         </Typography>
         {locationLinks.map(item => (
-          <Grid key={item.id}>
+          <Grid key={item.id} sx={styles.link}>
             <Link href={item.full_slug}>{item.name}</Link>
           </Grid>
         ))}
       </Grid>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
-          <PaymentIcon width={40} height={40} />
+          <PaymentIcon width={40} height={40} sx={styles.icon} />
           {paymentTitle}
         </Typography>
         <Typography>{paymentGateway}</Typography>
       </Grid>
       <Grid size={{ xs: 12, md: 4 }} offset={{ xs: 0, md: 4 }}>
         <Typography sx={styles.contact}>
-          <ContactIcon width={40} height={40} />
+          <ContactIcon width={40} height={40} sx={styles.icon} />
           {contactTitle}
         </Typography>
         <Content blok={{ text: contactText }} />
