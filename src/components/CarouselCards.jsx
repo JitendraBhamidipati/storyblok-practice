@@ -1,19 +1,22 @@
-import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import { Carousel } from '@/common';
+import Link from 'next/link';
+import { Grid, Typography } from '@mui/material';
+import { Carousel, Button } from '@/common';
 
 const styles = {
   container: { px: '8rem', py: '2rem' },
   header: { fontSize: '1.75rem' },
-  img: { height: 160, width: 160 },
-  circleImg: { borderRadius: '50%' },
+  img: color => ({ width: '100%', height: color ? 230 : 380 }),
+  circleImg: { height: 160, width: 160, borderRadius: '50%' },
   carousel: { pt: '2rem' },
-  card: { p: '2rem', bgcolor: '#F3F1E9' },
-  cardHeader: { width: '10rem', mb: '1rem' }
+  card: cardColour => ({ p: '10px', bgcolor: cardColour || 'trasnparent' }),
+  cardHeader: { width: '10rem', my: '1rem' },
+  caption: { my: '1rem' }
 };
 
 function CarouselCards({ blok }) {
-  const slides = blok.cards.map(card => {
+  const { cards, header, content, to } = blok;
+  const slides = cards.map(card => {
     return {
       key: card._uid,
       content: (
@@ -21,11 +24,14 @@ function CarouselCards({ blok }) {
           container
           textAlign="center"
           justifyContent="center"
-          sx={styles.card}
+          sx={styles.card(card.cardColour?.color)}
         >
           <Grid size={12}>
             <Grid
-              sx={[styles.img, card.isImageCircle && styles.circleImg]}
+              sx={[
+                styles.img(card.cardColour?.color),
+                card.isImageCircle && styles.circleImg
+              ]}
               component="img"
               alt={card.image.alt}
               src={card.image.filename}
@@ -37,7 +43,12 @@ function CarouselCards({ blok }) {
             </Typography>
           </Grid>
           <Grid size={12}>
-            <Typography>{card.content}</Typography>
+            <Typography variant="body">{card.content}</Typography>
+          </Grid>
+          <Grid size={12}>
+            <Typography sx={styles.caption} variant="subtitle2">
+              {card.caption}
+            </Typography>
           </Grid>
         </Grid>
       )
@@ -49,15 +60,23 @@ function CarouselCards({ blok }) {
       container
       sx={styles.container}
       textAlign="center"
+      spacing={2}
       justifyContent="center"
     >
       <Grid size={6}>
         <Typography variant="button" sx={styles.header}>
-          {blok.header}
+          {header}
         </Typography>
       </Grid>
       <Grid size={8}>
-        <Typography sx={styles.content}>{blok.content}</Typography>
+        <Typography sx={styles.content}>{content}</Typography>
+      </Grid>
+      <Grid size={8}>
+        {to && (
+          <Button variant="contained" sx={[styles.btn]}>
+            <Link href={to.full_slug}>{to.name}</Link>
+          </Button>
+        )}
       </Grid>
       <Grid size={12}>
         <Carousel

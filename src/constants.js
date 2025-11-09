@@ -63,6 +63,7 @@ export const resolveRelations = [
   'mainFooter.locationLinks',
   'hero.booking',
   'campaign.to',
+  'carouselCard.to',
   'campaign.to2',
   'bungalowCard.to',
   'bungalowCard.to2',
