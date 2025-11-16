@@ -2,7 +2,7 @@ import { renderRichText } from '@storyblok/react';
 import { Grid } from '@mui/material';
 
 const styles = {
-  mainPageContent: { p: '1rem', pt: '7rem' }
+  mainPageContent: { p: '4rem' }
 };
 
 function Content({ blok }) {

@@ -58,6 +58,7 @@ const styles = {
     top: 150,
     right: 80
   }),
+  footerTitle: { mb: '6rem' },
   icon: { color: 'common.white', m: 0 },
   bottomSpace: { mb: '8rem' }
 };
@@ -77,7 +78,10 @@ function Hero({ blok }) {
             <LocationIcon sx={styles.icon} /> {blok.location}
           </Typography>
         )}
-        <Typography variant="h1" sx={styles.title}>
+        <Typography
+          variant="h1"
+          sx={[styles.title, !blok.booking && styles.footerTitle]}
+        >
           {blok.title}
         </Typography>
         {blok.caption && (
@@ -85,15 +89,17 @@ function Hero({ blok }) {
             {blok.caption}
           </Typography>
         )}
-        <Button
-          variant="contained"
-          sx={[
-            styles.btn,
-            (!blok.banner || !blok.caption) && styles.bottomSpace
-          ]}
-        >
-          <Link href={blok.booking.full_slug}>{blok.booking.name}</Link>
-        </Button>
+        {blok.booking && (
+          <Button
+            variant="contained"
+            sx={[
+              styles.btn,
+              (!blok.banner || !blok.caption) && styles.bottomSpace
+            ]}
+          >
+            <Link href={blok.booking.full_slug}>{blok.booking.name}</Link>
+          </Button>
+        )}
       </Grid>
       {blok.discount && (
         <Grid sx={styles.discount(blok.themeColor.color)}>

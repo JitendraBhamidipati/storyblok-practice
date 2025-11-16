@@ -26,6 +26,9 @@ import Amenity from '@/components/Amenity';
 import SportsCard from '@/components/SportsCard';
 import AddonCard from '@/components/AddonCard';
 import DiscountCard from '@/components/DiscountCard';
+import Arrival from '@/components/Arrival';
+import ArrivalType from '@/components/ArrivalType';
+import FlexibleTravel from '@/components/FlexibleTravel';
 
 const components = {
   page: Page,
@@ -37,7 +40,10 @@ const components = {
   amenities: Amenities,
   amenity: Amenity,
   discountCard: DiscountCard,
+  arrival: Arrival,
+  flexibleTravel: FlexibleTravel,
   'speed-dial': SpeedDial,
+  arrivalType: ArrivalType,
   addOnCard: AddonCard,
   sportsCard: SportsCard,
   imageCard: ImageCard,

@@ -12,7 +12,7 @@ import Content from './Content';
 const styles = {
   container: {
     alignItems: 'flex-start',
-    p: '2rem'
+    p: '2rem 3rem'
   },
   icon: { mr: '0.5rem' },
   contact: { mb: '1rem', fontWeight: 'bold' },
@@ -29,21 +29,31 @@ function MainFooter({ blok }) {
     locationTitle,
     surfInstructorTitle,
     locationLinks,
+    links,
     surfInstructorLinks
   } = blok;
-
   return (
-    <Grid container sx={[styles.container]} spacing={2}>
+    <Grid container sx={styles.container} spacing={2}>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
           <InfoIcon width={40} height={40} sx={styles.icon} />
           {infoTitle}
         </Typography>
-        {/* {links.map(item => (
-          <Grid key={item.id} sx={styles.link}>
-            <Link href={item.link.cached_url}>{item.text}</Link>
-          </Grid>
-        ))} */}
+        {links.map(item => {
+          if (item.link.linktype === 'story')
+            return (
+              <Grid key={item.id} sx={styles.link}>
+                <Link href={item.link.cached_url}>{item.text}</Link>
+              </Grid>
+            );
+          return (
+            <Grid key={item.id} sx={styles.link}>
+              <Link href={item.link.cached_url} target="_blank">
+                {item.text}
+              </Link>
+            </Grid>
+          );
+        })}
       </Grid>
       <Grid size={{ xs: 12, md: 4 }}>
         <Typography sx={styles.contact}>
