@@ -21,7 +21,7 @@ function AddonCard({ blok }) {
       </Grid>
       {addons.map(amenity => (
         <Grid
-          size={12 / addons.length}
+          size={{ xs: 12, md: 12 / addons.length }}
           key={amenity.id}
           container
           textAlign="center"
@@ -31,7 +31,7 @@ function AddonCard({ blok }) {
           <StoryblokComponent blok={amenity} />
         </Grid>
       ))}
-      <Grid size={4}>
+      <Grid size={{ xs: 12, md: 4 }}>
         <Typography variant="body1" sx={styles.info}>
           {infoSvg.filename && (
             <Grid

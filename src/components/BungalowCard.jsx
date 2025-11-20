@@ -56,7 +56,8 @@ const styles = {
     left: -50,
     zIndex: 10
   }),
-  btnWrap: { mt: '1rem' }
+  wrap: { ml: '1rem' },
+  btnWrap: { mt: '1rem', ml: '1rem' }
 };
 
 function BungalowCard({ blok }) {
@@ -95,7 +96,7 @@ function BungalowCard({ blok }) {
       flexDirection={alternate ? 'row' : 'row-reverse'}
       sx={styles.container}
     >
-      <Grid size={5.5} sx={styles.carouselWrap}>
+      <Grid size={{ xs: 12, md: 5 }} sx={styles.carouselWrap}>
         <Carousel
           key={blok.id}
           slides={slides}
@@ -118,8 +119,11 @@ function BungalowCard({ blok }) {
           </Grid>
         )}
       </Grid>
-      <Grid size={5}>
-        <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
+      <Grid size={{ xs: 12, md: 5 }}>
+        <Grid
+          sx={styles.wrap}
+          dangerouslySetInnerHTML={{ __html: renderedRichText }}
+        />
         <Grid container sx={styles.btnWrap}>
           <Grid size={5.5}>
             {to && (

@@ -38,13 +38,13 @@ function SportsCard({ blok }) {
       justifyContent="space-around"
       sx={styles.container(bgcolor)}
     >
-      <Grid size={5.5}>
+      <Grid size={{ xs: 12, md: 5.5 }}>
         <Typography variant="h4" sx={styles.title}>
           {title}
         </Typography>
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
       </Grid>
-      <Grid size={5.5}>
+      <Grid size={{ xs: 12, md: 5.5 }}>
         <Carousel
           key={blok.id}
           slides={slides}

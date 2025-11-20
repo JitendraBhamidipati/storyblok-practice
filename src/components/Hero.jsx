@@ -14,11 +14,11 @@ const styles = {
   }),
   discountValue: { fontSize: '2.5rem', lineHeight: 1 },
   title: {
-    fontSize: '60px',
+    fontSize: { xs: '40px', md: '60px' },
     fontWeight: 'bold',
     letterSpacing: 10,
-    ml: '3rem',
-    width: '60%',
+    ml: { xs: '1rem', md: '3rem' },
+    width: { xs: '100%', md: '60%' },
     textTransform: 'uppercase',
     color: 'common.white'
   },
@@ -27,19 +27,19 @@ const styles = {
     bgcolor: 'common.black',
     color: 'common.white',
     fontWeight: 'bold',
-    ml: '3rem',
+    ml: { xs: '1rem', md: '3rem' },
     mt: '4rem',
     px: '8rem'
   },
   location: {
     color: 'common.white',
     margin: 0,
-    ml: '3rem',
+    ml: { xs: '1rem', md: '3rem' },
     fontSize: '1.25rem'
   },
   caption: {
     fontSize: '2rem',
-    ml: '3rem',
+    ml: { xs: '1rem', md: '3rem' },
     color: 'common.white'
   },
   discount: color => ({
@@ -56,7 +56,7 @@ const styles = {
     position: 'absolute',
     borderRadius: '50%',
     top: 150,
-    right: 80
+    right: { xs: 50, md: 80 }
   }),
   footerTitle: { mb: '6rem' },
   icon: { color: 'common.white', m: 0 },

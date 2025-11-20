@@ -4,7 +4,7 @@ import { Grid, Typography } from '@mui/material';
 const styles = {
   container: {
     bgcolor: '#f3f1e9',
-    p: '1rem 2rem'
+    p: { xs: '1rem', md: '1rem 2rem' }
   }
 };
 

@@ -29,8 +29,8 @@ function Subscribe({ blok }) {
 
   return (
     <FormProvider {...methods}>
-      <Grid container sx={styles.container(blok.color.color)}>
-        <Grid size={5}>
+      <Grid container sx={styles.container(blok.color.color)} spacing={2}>
+        <Grid size={{ xs: 12, md: 5 }}>
           {svg.filename && (
             <Grid
               component="img"
@@ -45,7 +45,12 @@ function Subscribe({ blok }) {
           </Typography>
           <Typography>{blok.caption}</Typography>
         </Grid>
-        <Grid size={5} offset={1} container spacing={2}>
+        <Grid
+          size={{ xs: 12, md: 5 }}
+          offset={{ xs: 0, md: 1 }}
+          container
+          spacing={2}
+        >
           <Grid size={12}>
             <TextField sx={styles.fields} label={blok.field1} name="username" />
           </Grid>

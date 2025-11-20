@@ -35,7 +35,7 @@ function ImageCard({ blok }) {
       justifyContent="space-around"
       alignItems="flex-start"
     >
-      <Grid size={5} container flexDirection="column">
+      <Grid size={{ xs: 12, md: 5 }} container flexDirection="column">
         {svg.filename && (
           <Grid
             component="img"
@@ -60,7 +60,7 @@ function ImageCard({ blok }) {
           </Button>
         )}
       </Grid>
-      <Grid size={5}>
+      <Grid size={{ xs: 12, md: 5 }}>
         <Grid
           component="img"
           alt={image.alt}

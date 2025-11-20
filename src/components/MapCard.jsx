@@ -11,10 +11,10 @@ function MapCard({ blok }) {
   const renderedRichText = renderRichText(content);
   return (
     <Grid container justifyContent="space-around" sx={styles.container}>
-      <Grid size={5}>
+      <Grid size={{ xs: 12, md: 5 }}>
         <Grid component="img" alt={map.alt} src={map.filename} width="100%" />
       </Grid>
-      <Grid size={5}>
+      <Grid size={{ xs: 12, md: 5 }}>
         <Typography variant="h3" sx={styles.title}>
           {title}
         </Typography>

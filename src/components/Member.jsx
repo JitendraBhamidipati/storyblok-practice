@@ -11,16 +11,16 @@ const styles = {
 function Member({ blok }) {
   return (
     <Grid container sx={styles.container} textAlign="center" spacing={2}>
-      <Grid size={4}>
+      <Grid size={{ xs: 3, md: 4 }}>
         <Grid
           component="img"
           sx={styles.image}
           src={blok.picture.filename}
-          height={110}
-          width={110}
+          height={{ xs: 80, md: 110 }}
+          width={{ xs: 80, md: 110 }}
         />
       </Grid>
-      <Grid size={8} textAlign="left">
+      <Grid size={{ xs: 9, md: 8 }} textAlign="left">
         <Typography variant="button">{blok.name}</Typography>
         <Typography variant="body2">{blok.role}</Typography>
         {blok.mobile && (

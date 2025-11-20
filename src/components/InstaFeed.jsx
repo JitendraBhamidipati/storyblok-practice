@@ -10,7 +10,11 @@ const styles = {
 function InstaFeed({ blok }) {
   return (
     <Grid container sx={styles.container}>
-      <Grid size={10} offset={2} sx={{ py: '1rem' }}>
+      <Grid
+        size={{ xs: 11, md: 10 }}
+        offset={{ xs: 1, md: 2 }}
+        sx={{ py: '1rem' }}
+      >
         <InstagramIcon sx={styles.icon} />
         <Typography variant="button" sx={styles.header}>
           {blok.header}

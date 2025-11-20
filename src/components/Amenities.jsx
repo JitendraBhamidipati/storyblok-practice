@@ -9,7 +9,7 @@ const styles = {
 function Amenities({ blok }) {
   const { title, note, amenities } = blok;
   return (
-    <Grid container sx={styles.container}>
+    <Grid container sx={styles.container} spacing={2}>
       {title && (
         <Grid size={12}>
           <Typography variant="h2" sx={styles.title}>
@@ -19,7 +19,7 @@ function Amenities({ blok }) {
       )}
       {amenities.map(amenity => (
         <Grid
-          size={12 / amenities.length}
+          size={{ xs: 4, md: 12 / amenities.length }}
           key={amenity._uid}
           container
           textAlign="center"
@@ -29,7 +29,7 @@ function Amenities({ blok }) {
           <StoryblokComponent blok={amenity} />
         </Grid>
       ))}
-      <Grid size={4}>
+      <Grid size={{ xs: 10, md: 4 }}>
         <Typography variant="caption">{note}</Typography>
       </Grid>
     </Grid>

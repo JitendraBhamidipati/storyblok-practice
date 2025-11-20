@@ -19,7 +19,7 @@ function DiscountCard({ blok }) {
       textAlign="center"
       flexDirection="column"
     >
-      <Grid size={7}>
+      <Grid size={{ xs: 11, md: 7 }}>
         <Typography variant="button" sx={styles.text}>
           {text}
         </Typography>
