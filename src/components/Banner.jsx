@@ -33,7 +33,7 @@ function Banner({ blok }) {
   const { image, title, bgcolor, textColor } = blok;
   return (
     <Grid container sx={styles.container(bgcolor)}>
-      <Grid offset={1} size={{ xs: 12, md: 4 }} textAlign="center">
+      <Grid size={{ xs: 12, md: 4 }} textAlign="center">
         <Grid sx={styles.circle(textColor)} />
         <Typography
           textAlign="center"

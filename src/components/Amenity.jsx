@@ -11,7 +11,8 @@ const styles = {
     borderRadius: '50%',
     bgcolor: color.color
   }),
-  text: { mt: '1rem' }
+  text: { mt: '1rem' },
+  title2: { fontSize: '1rem' }
 };
 
 function Amenity({ blok }) {
@@ -28,8 +29,16 @@ function Amenity({ blok }) {
           src={svg.filename}
         />
       </Grid>
-      {title && <Typography variant="h4">{title}</Typography>}
-      {title2 && <Typography variant="h6">{title2}</Typography>}
+      {title && (
+        <Typography variant="h4" id="title">
+          {title}
+        </Typography>
+      )}
+      {title2 && (
+        <Typography variant="h6" sx={styles.title2}>
+          {title2}
+        </Typography>
+      )}
       <Typography variant="body" sx={styles.text}>
         {text}
       </Typography>

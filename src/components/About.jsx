@@ -13,7 +13,7 @@ const styles = {
   container: {
     bgcolor: '#F3F1E9',
     py: '2rem',
-    px: '7rem'
+    px: { xs: '2rem', md: '7rem' }
   },
   title: {
     fontSize: '2.5rem',

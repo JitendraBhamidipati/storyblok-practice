@@ -5,7 +5,7 @@ import React from 'react';
 import { Button } from '@/common';
 
 const styles = {
-  container: { p: '2rem 6rem', bgcolor: '#F3F1E9' },
+  container: { p: { xs: '2rem', md: '2rem 6rem' }, bgcolor: '#F3F1E9' },
   header: { mb: '1.5rem', textTransform: 'uppercase' },
   rightText: { mt: '6rem' },
   btn: {
@@ -41,7 +41,7 @@ function FlexibleTravel({ blok }) {
         spacing={2}
         justifyContent="space-between"
       >
-        <Grid size={5.5}>
+        <Grid size={{ xs: 12, md: 5.5 }}>
           <Typography variant="h3" sx={styles.header}>
             {header}
           </Typography>
@@ -52,7 +52,7 @@ function FlexibleTravel({ blok }) {
             </Button>
           )}
         </Grid>
-        <Grid size={5.5}>
+        <Grid size={{ xs: 12, md: 5.5 }}>
           <Grid
             sx={styles.rightText}
             dangerouslySetInnerHTML={{ __html: rightText }}

@@ -65,7 +65,7 @@ function ImageCard({ blok }) {
           component="img"
           alt={image.alt}
           width="100%"
-          height={400}
+          height={{ xs: 200, md: 400 }}
           src={image.filename}
         />
       </Grid>

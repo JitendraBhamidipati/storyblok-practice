@@ -7,8 +7,12 @@ import { Button, Carousel } from '@/common';
 const styles = {
   container: { pb: '2rem', pt: '5rem' },
   carouselWrap: { position: 'relative' },
-  label: { lineHeight: 1, textTransform: 'uppercase' },
-  discountValue: { fontSize: '2.5rem', lineHeight: 1 },
+  label: {
+    lineHeight: 1,
+    textTransform: 'uppercase',
+    fontSize: { xs: '0.75rem', md: '1.25rem' }
+  },
+  discountValue: { fontSize: { xs: '1.25rem', md: '2.5rem' }, lineHeight: 1 },
   btn: {
     bgcolor: 'common.black',
     color: 'common.white',
@@ -33,16 +37,15 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     bgcolor: color,
-    width: '8rem',
-    fontSize: '1.5rem',
+    width: { xs: '4rem', md: '8rem' },
     fontWeight: 'bold',
     textAlign: 'center',
     overflowWrap: 'break-word',
-    height: '8rem',
+    height: { xs: '4rem', md: '8rem' },
     position: 'absolute',
     borderRadius: '50%',
-    top: -50,
-    left: -50,
+    top: { xs: -15, md: -50 },
+    left: { xs: -15, md: -50 },
     zIndex: 10
   })
 };
@@ -57,7 +60,7 @@ function Campaign({ blok }) {
         component="img"
         alt={image.alt}
         width="100%"
-        height={430}
+        height={{ xs: 215, md: 430 }}
         src={image.filename}
       />
     )
@@ -71,7 +74,7 @@ function Campaign({ blok }) {
       flexDirection={blok.alternate ? 'row' : 'row-reverse'}
       sx={styles.container}
     >
-      <Grid size={5} sx={styles.carouselWrap}>
+      <Grid size={{ xs: 11, md: 5 }} sx={styles.carouselWrap}>
         {blok.discount && (
           <Grid sx={styles.discount(blok.themeColor.color)}>
             <Typography variant="button" sx={styles.discountValue}>
@@ -90,7 +93,7 @@ function Campaign({ blok }) {
           isAutoPlay
         />
       </Grid>
-      <Grid size={5}>
+      <Grid size={{ xs: 11, md: 5 }}>
         <Grid dangerouslySetInnerHTML={{ __html: renderedRichText }} />
         {blok.to && (
           <Button variant="contained" sx={[styles.btn]}>

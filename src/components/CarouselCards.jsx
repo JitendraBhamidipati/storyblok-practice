@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Carousel, Button } from '@/common';
 
 const styles = {
-  container: { px: '8rem', py: '2rem' },
+  container: {
+    px: { xs: '1rem', sm: '2rem', md: '4rem', lg: '8rem' },
+    py: '2rem'
+  },
   header: { fontSize: '1.75rem' },
   img: color => ({ width: '100%', height: color ? 230 : 380 }),
   circleImg: { height: 160, width: 160, borderRadius: '50%' },
@@ -16,6 +19,9 @@ const styles = {
 
 function CarouselCards({ blok }) {
   const { cards, header, content, to } = blok;
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
   const slides = cards.map(card => {
     return {
       key: card._uid,
@@ -63,15 +69,15 @@ function CarouselCards({ blok }) {
       spacing={2}
       justifyContent="center"
     >
-      <Grid size={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Typography variant="button" sx={styles.header}>
           {header}
         </Typography>
       </Grid>
-      <Grid size={8}>
+      <Grid size={{ xs: 12, md: 8 }}>
         <Typography sx={styles.content}>{content}</Typography>
       </Grid>
-      <Grid size={8}>
+      <Grid size={{ xs: 12, md: 8 }}>
         {to && (
           <Button variant="contained" sx={[styles.btn]}>
             <Link href={to.full_slug}>{to.name}</Link>
@@ -84,7 +90,7 @@ function CarouselCards({ blok }) {
           buttonType="side"
           sx={styles.carousel}
           slides={slides}
-          slidesPerView={3}
+          slidesPerView={isSmallScreen ? 1 : 3}
           isCircular
         />
       </Grid>
